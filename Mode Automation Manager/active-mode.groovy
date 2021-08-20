@@ -1,4 +1,4 @@
-/*
+ /*
 
  */
 
@@ -30,7 +30,7 @@ def mainPage1()
             input name:	"locksToLock", type: "capability.lock", title: "Lock These Locks", multiple: true, required: false
             input name:	"locksToUnLock", type: "capability.lock", title: "Unlock Locks", multiple: true, required: false
             input name:	"turnOffSwitches", type: "capability.switch", title: "Turn Off Switches", multiple: true, required: false
-            input name:	"turnOnSwitches", type:	"capability.switch", title: "Turn On Switches", multiple: true, required: false
+            input name:	"turnOnSwitches", type:	"capability.switch", title: "Turn No Switches", multiple: true, required: false
         }
         
         section
@@ -93,30 +93,30 @@ def modeHandler(evt) {
         
         if(locksToLock)
         {
-            locksToLock.each
-            {
-                it.lock()
+            locksToLock.each{lock->
+               logDebug("Locking ${lock.displayName}")
+               lock.lock()
             }
         }
         if(locksToUnLock)
         {
-            locksToUnLock.each
-            {
-                it.unlock()
+            locksToUnLock.each{lock->
+                logDebug("Unlocking ${lock.displayName}")
+                lock.unlock()
             }
         }
         if(turnOnSwitches)
         {
-            turnOnSwitches.each
-            {
-                it.on()
+            turnOnSwitches.each{sw->
+                 logDebug("Turning On ${sw.displayName}")
+                sw.on()
             }
         }
         if(turnOffSwitches)
         {
-            turnOffSwitches.each
-            {
-                it.off()
+            turnOffSwitches.each{sw->
+                logDebug("Turning Off ${sw.displayName}")
+                sw.off()
             }
         }
     }
