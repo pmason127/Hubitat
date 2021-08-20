@@ -30,7 +30,7 @@ def mainPage1()
             input name:	"locksToLock", type: "capability.lock", title: "Lock These Locks", multiple: true, required: false
             input name:	"locksToUnLock", type: "capability.lock", title: "Unlock Locks", multiple: true, required: false
             input name:	"turnOffSwitches", type: "capability.switch", title: "Turn Off Switches", multiple: true, required: false
-            input name:	"turnOnSwitches", type:	"capability.switch", title: "Turn Off Switches", multiple: true, required: false
+            input name:	"turnOnSwitches", type:	"capability.switch", title: "Turn On Switches", multiple: true, required: false
         }
         
         section
